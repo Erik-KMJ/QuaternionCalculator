@@ -31,6 +31,8 @@ int main()
 	std::cout << b << std::endl;
 	std::cout << scalar << std::endl << std::endl;
 
+	
+
 	system("PAUSE");
 
 	return 0;
