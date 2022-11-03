@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <cmath>
 
 std::string GetOpperationSign(float num)
 {
@@ -80,6 +81,44 @@ void QuaternionConjugate(float a, float ai, float aj, float ak)
 	resulti = ai * -1;
 	resultj = aj * -1;
 	resultk = ak * -1;
+
+	std::string sign1 = GetOpperationSign(resulti);
+	std::string sign2 = GetOpperationSign(resultj);
+	std::string sign3 = GetOpperationSign(resultk);
+
+	std::cout << result << sign1 << resulti << "i" << sign2 << resultj << "j" << sign3 << resultk << "k" << std::endl << std::endl;
+}
+
+void QuaternionInverse(float a, float ai, float aj, float ak)
+{
+	float result, resulti, resultj, resultk;
+
+	float magnitudeSquared = (a * a)+(ai * ai)+(aj * aj)+(ak * ak);
+
+	//q^-1 = (q*) / (|q|^2)
+
+	result = a / magnitudeSquared;
+	resulti = (ai * -1.0f) / magnitudeSquared;
+	resultj = (aj * -1.0f) / magnitudeSquared;
+	resultk = (ak * -1.0f) / magnitudeSquared;
+
+	std::string sign1 = GetOpperationSign(resulti);
+	std::string sign2 = GetOpperationSign(resultj);
+	std::string sign3 = GetOpperationSign(resultk);
+
+	std::cout << result << sign1 << resulti << "i" << sign2 << resultj << "j" << sign3 << resultk << "k" << std::endl << std::endl;
+}
+
+void QuaternionScale(float a, float ai, float aj, float ak, float scalar)
+{
+	float result, resulti, resultj, resultk;
+
+	float magnitudeSquared = (a * a) + (ai * ai) + (aj * aj) + (ak * ak);
+
+	result = a * scalar;
+	resulti = ai * scalar;
+	resultj = aj * scalar;
+	resultk = ak * scalar;
 
 	std::string sign1 = GetOpperationSign(resulti);
 	std::string sign2 = GetOpperationSign(resultj);
@@ -173,10 +212,10 @@ int main()
 	QuaternionConjugate(a, ai, aj, ak);
 
 	std::cout << "a^-1 = ";
-
+	QuaternionInverse(a, ai, aj, ak);
 
 	std::cout << "ta = ";
-	
+	QuaternionScale(a, ai, aj, ak, scalar);
 	
 
 	system("PAUSE");
