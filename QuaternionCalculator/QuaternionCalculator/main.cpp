@@ -10,8 +10,8 @@ int main()
 	std::string line;
 	std::string line2;
 	std::string trash;
-	int var1, var2, var3, var4;
-	int var5, var6, var7, var8, scalar;
+	float var1, var2, var3, var4;
+	float var5, var6, var7, var8, scalar;
 	// setting values from the file
 	if (getline(myfile, line))
 	{
@@ -41,7 +41,7 @@ int main()
 	}
 	std::getline(myfile, trash);
 	myfile >> scalar;
-	std::cout << scalar;
+	std::cout << scalar << std::endl;
 
 
 

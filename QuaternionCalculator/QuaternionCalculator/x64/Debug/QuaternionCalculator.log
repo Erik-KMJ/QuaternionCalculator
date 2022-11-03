@@ -1,4 +1,2 @@
 ﻿  main.cpp
-C:\Users\marc_\Documents\mds\Sem 2 Year 1\Math\Final Project Math\QuaternionCalculator\QuaternionCalculator\QuaternionCalculator\main.cpp(10,8): warning C4101: 'a': unreferenced local variable
-C:\Users\marc_\Documents\mds\Sem 2 Year 1\Math\Final Project Math\QuaternionCalculator\QuaternionCalculator\QuaternionCalculator\main.cpp(11,8): warning C4101: 'b': unreferenced local variable
   QuaternionCalculator.vcxproj -> C:\Users\marc_\Documents\mds\Sem 2 Year 1\Math\Final Project Math\QuaternionCalculator\QuaternionCalculator\x64\Debug\QuaternionCalculator.exe
