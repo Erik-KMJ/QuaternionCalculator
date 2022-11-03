@@ -3,6 +3,91 @@
 #include <string>
 #include <sstream>
 
+std::string GetOpperationSign(float num)
+{
+	if (num >= 0)
+	{
+		return "+";
+	}
+	else
+	{
+		return "";
+	}
+}
+
+void QuaternionAddition(float a, float ai, float aj, float ak, float b, float bi, float bj, float bk)
+{
+	float result, resulti, resultj, resultk;
+
+	result = a + b;
+	resulti = ai + bi;
+	resultj = aj + bj;
+	resultk = ak + bk;
+
+	std::string sign1 = GetOpperationSign(resulti);
+	std::string sign2 = GetOpperationSign(resultj);
+	std::string sign3 = GetOpperationSign(resultk);
+
+	std::cout << result << sign1 << resulti << "i" << sign2 << resultj << "j" << sign3 << resultk << "k" << std::endl << std::endl;
+}
+
+void QuaternionSubtraction(float a, float ai, float aj, float ak, float b, float bi, float bj, float bk)
+{
+	float result, resulti, resultj, resultk;
+
+	result = a - b;
+	resulti = ai - bi;
+	resultj = aj - bj;
+	resultk = ak - bk;
+
+	std::string sign1 = GetOpperationSign(resulti);
+	std::string sign2 = GetOpperationSign(resultj);
+	std::string sign3 = GetOpperationSign(resultk);
+
+	std::cout << result << sign1 << resulti << "i" << sign2 << resultj << "j" << sign3 << resultk << "k" << std::endl << std::endl;
+}
+
+void QuaternionMultiplication(float a, float ai, float aj, float ak, float b, float bi, float bj, float bk)
+{
+	float result, resulti, resultj, resultk;
+
+	result = (a * b) - (ai * bi) - (aj * bj) - ( ak * bk);
+	resulti = (a * bi) + (ai * b) - (aj * bk) + (ak * bj);
+	resultj = (a * bj) + (ai * bk) + (aj * b) - (ak * bi);
+	resultk = (a * bk) - (ai * bj) + (aj * bi) + (ak * b);
+
+	std::string sign1 = GetOpperationSign(resulti);
+	std::string sign2 = GetOpperationSign(resultj);
+	std::string sign3 = GetOpperationSign(resultk);
+
+	std::cout << result << sign1 << resulti << "i" << sign2 << resultj << "j" << sign3 << resultk << "k" << std::endl << std::endl;
+}
+
+void QuaternionDotProduct(float a, float ai, float aj, float ak, float b, float bi, float bj, float bk)
+{
+	float result;
+
+	result = (a * b) + (ai * bi) + (aj * bj) + (ak * bk);
+
+	std::cout << result << std::endl << std::endl;
+}
+
+void QuaternionConjugate(float a, float ai, float aj, float ak)
+{
+	float result, resulti, resultj, resultk;
+
+	result = a;
+	resulti = ai * -1;
+	resultj = aj * -1;
+	resultk = ak * -1;
+
+	std::string sign1 = GetOpperationSign(resulti);
+	std::string sign2 = GetOpperationSign(resultj);
+	std::string sign3 = GetOpperationSign(resultk);
+
+	std::cout << result << sign1 << resulti << "i" << sign2 << resultj << "j" << sign3 << resultk << "k" << std::endl << std::endl;
+}
+
 int main()
 {
 	std::ifstream myfile("Quaternion.txt"); // load file
@@ -66,11 +151,32 @@ int main()
 	myfile >> scalar;
 	std::cout <<"scalar = " << scalar << std::endl << std::endl;
 
+	std::cout << "a + b = " ;
+	QuaternionAddition(a, ai, aj, ak, b, bi, bj, bk);
+
+	std::cout << "a - b = " ;
+	QuaternionSubtraction(a, ai, aj, ak, b, bi, bj, bk);
+
+	std::cout << "b - a = " ;
+	QuaternionSubtraction(b, bi, bj, bk, a, ai, aj, ak);
+
+	std::cout << "ab = ";
+	QuaternionMultiplication(a, ai, aj, ak, b, bi, bj, bk);
+
+	std::cout << "ba = ";
+	QuaternionMultiplication(b, bi, bj, bk, a, ai, aj, ak);
+
+	std::cout << "a.b = ";
+	QuaternionDotProduct(a, ai, aj, ak, b, bi, bj, bk);
+
+	std::cout << "a* = ";
+	QuaternionConjugate(a, ai, aj, ak);
+
+	std::cout << "a^-1 = ";
+
+
+	std::cout << "ta = ";
 	
-	
-
-
-
 	
 
 	system("PAUSE");
