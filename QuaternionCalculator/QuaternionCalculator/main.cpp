@@ -1,16 +1,22 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 int main()
 {
 	std::ifstream myfile("Quaternion.txt"); // load file
 
-	int a = 0;
+	std::string a;
+	std::string b;
+	std::string scalar;
 
 	// setting values from the file
 	if (myfile.is_open())
 	{
-		myfile >> a;
+		
+		std::getline(myfile, a);
+		std::getline(myfile, b);
+		std::getline(myfile, scalar);
 
 		myfile.close();
 
@@ -20,7 +26,9 @@ int main()
 		std::cout << "ERROR LOADING FILE!!! \n\n";
 	}
 
-	std::cout << a;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << scalar << std::endl;
 
 	system("PAUSE");
 
